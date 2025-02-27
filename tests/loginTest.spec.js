@@ -32,6 +32,7 @@ test('Add product to cart', async({page})=>{
     await page.locator('#username').fill('rahulshettyacademy')
     await page.locator('#password').fill('learning')
     await page.locator('[type="submit"]').click()
+    await page.waitForLoadState('networkidle')
     console.log(await page.locator('.card .card-footer').first().textContent())
     console.log(await page.locator('.card .card-footer').nth(1).textContent())
 })
