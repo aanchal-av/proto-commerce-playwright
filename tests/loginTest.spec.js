@@ -39,3 +39,24 @@ test('Add product to cart', async({page})=>{
     console.log(await page.locator('.card .card-footer').nth(1).textContent())
 })
 
+test('select dropdown', async({page})=>{
+    await page.goto("https://rahulshettyacademy.com/loginpagePractise/")
+    await page.locator('select.form-control').selectOption('Consultant')
+})
+
+test('select radio button', async({page})=>{
+    await page.goto("https://rahulshettyacademy.com/loginpagePractise/")
+    await page.locator('.radiotextsty').last().click()
+    await page.locator('#okayBtn').click()
+    await expect(page.locator('.radiotextsty').last()).toBeChecked()
+
+})
+
+test('validate blinking text', async({page})=>{
+    await page.goto("https://rahulshettyacademy.com/loginpagePractise/")
+    await page.locator('#username').fill('rahulshettyacademy')
+    await page.locator('#password').fill('learning')
+    await page.waitForLoadState('networkidle')
+    await expect(page.locator("[href*='documents-request']")).toHaveAttribute('class','blinkingText')
+})
+
