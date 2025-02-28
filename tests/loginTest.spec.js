@@ -74,6 +74,43 @@ test('child window validation', async({browser})=>{
                   ])
      const text = await newPage.locator('.red').textContent()
      console.log(text)
+})
 
+test('validate the part of text', async({browser})=>{
+    const context = await browser.newContext()
+    const page = await context.newPage()
+    await page.goto("https://rahulshettyacademy.com/loginpagePractise/")
+    await expect(page.locator("[href*='documents-request']")).toHaveAttribute('class','blinkingText')
+    const documentLink = page.locator("[href*='documents-request']")
+    
+    const [newPage] = await Promise.all(
+    [ 
+    context.waitForEvent('page'),//listen for any new page
+    documentLink.click() //new page opened
+                  ])
+     const text = await newPage.locator('.red').textContent()
+     console.log(text)
+     const arrayText = text.split('@')
+     const domain = arrayText[1].split(' ')[0]
+     console.log(domain)
+})
 
+test('Apply the username from the fetched text', async({browser})=>{
+    const context = await browser.newContext()
+    const page = await context.newPage()
+    await page.goto("https://rahulshettyacademy.com/loginpagePractise/")
+    await expect(page.locator("[href*='documents-request']")).toHaveAttribute('class','blinkingText')
+    const documentLink = page.locator("[href*='documents-request']")
+    
+    const [newPage] = await Promise.all(
+    [ 
+    context.waitForEvent('page'),//listen for any new page
+    documentLink.click() //new page opened
+                  ])
+     const text = await newPage.locator('.red').textContent()
+     console.log(text)
+     const arrayText = text.split('@')
+     const domain = arrayText[1].split(' ')[0]
+     console.log(domain)
+    await page.locator('#username').fill(domain)
 })
