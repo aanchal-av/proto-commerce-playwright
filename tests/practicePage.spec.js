@@ -24,3 +24,7 @@ test('validate the pop up', async({page})=>{
     page.on('dialog',dialog=> dialog.accept)
 })
 
+test('validate the hover function', async({page})=>{
+    await page.goto('https://rahulshettyacademy.com/AutomationPractice/')
+    await page.locator('#mousehover').hover()
+})
