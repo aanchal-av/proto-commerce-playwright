@@ -4,7 +4,7 @@ const { test, expect } = require('@playwright/test');
  
  
  
-test('@Webst Client App login', async ({ page }) => {
+test('@web Client App login', async ({ page }) => {
    const email = "aanchal.av@dummy.com";
    await page.goto("https://rahulshettyacademy.com/client");
    await page.getByPlaceholder("email@example.com").fill(email);

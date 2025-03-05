@@ -1,7 +1,7 @@
 const {test,expect} = require('@playwright/test')
 
 test.describe.configure({mode: 'parallel'}) //this is to parallely execute tests of the same spec file 
-test('browser context login test',async({browser})=>{
+test('@Web browser context login test',async({browser})=>{
 
     const context = await browser.newContext()
     const page = await context.newPage()
@@ -9,7 +9,7 @@ test('browser context login test',async({browser})=>{
     
 })
 
-test('page context login test',async({page})=>{
+test('@Web page context login test',async({page})=>{
     await page.goto("https://rahulshettyacademy.com/loginpagePractise/")
     console.log(await page.title())
     await expect(page).toHaveTitle('LoginPage Practise | Rahul Shetty Academy')
