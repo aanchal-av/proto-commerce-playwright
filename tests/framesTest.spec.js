@@ -1,6 +1,6 @@
 const {test,expect} = require('@playwright/test')
 
-test.only('validate frames', async({page})=>{
+test('validate frames', async({page})=>{
   await page.goto('https://rahulshettyacademy.com/AutomationPractice/')
   const framePage=  page.frameLocator('#courses-iframe')
   await framePage.locator('li a[href*="lifetime-access"]:visible').click()
