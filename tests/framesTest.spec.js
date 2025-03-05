@@ -8,3 +8,4 @@ test('validate frames', async({page})=>{
   console.log(textCheck.split(" ")[1])
 
 })  
+
