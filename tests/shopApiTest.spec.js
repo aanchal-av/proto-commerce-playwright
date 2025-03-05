@@ -15,13 +15,14 @@ test.beforeAll(  async()=>{
 
 })
 
+
 test.beforeEach( ()=>{
 
 
 })
 
 
-test.only('Client app login', async({page})=>{
+test('Client app login', async({page})=>{
     page.addInitScript(value =>{
         window.localStorage.setItem('token',value)
     }, token)

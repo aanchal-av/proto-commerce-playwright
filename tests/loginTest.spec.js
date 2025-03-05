@@ -1,5 +1,6 @@
 const {test,expect} = require('@playwright/test')
 
+test.describe.configure({mode: 'parallel'}) //this is to parallely execute tests of the same spec file 
 test('browser context login test',async({browser})=>{
 
     const context = await browser.newContext()
